@@ -1,17 +1,18 @@
 Indexed Debouncer
 =======================================================================
 
-A class that can be instantiated as a global dependency and which can keep track of named debounces
-across various disparate execution calls. This was built specifically to address React component
-mount/unmount chaos, in which a "normal" debounce function wouldn't work because it is being
-instantiated as a new instance every execution.
+The primary export of this library is the [`Debouncer` class](classes/Debouncer.html). This is a
+class that can be instantiated as a global dependency and which can keep track of named debounces
+across various disparate execution calls.
+
+This was built specifically to address React component mount/unmount chaos, in which a "normal"
+debounce function wouldn't work because it is being instantiated as a new instance every execution.
+See examples of the primary use case below in `Usage`.
 
 Note: Detailed library API docs are available in this repo at `/docs/index.html`.
 
 
 ## Usage
-
-The primary export of this library is the [`Debouncer` class](classes/Debouncer.html).
 
 **Note: `Debouncer` has a default wait time of 15ms. This may be changed globally by passing a
 different default in the `Debouncer` constructor, or it may be changed per-invocation by passing a

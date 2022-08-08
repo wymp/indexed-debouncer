@@ -14,16 +14,17 @@
 <a href="#indexed-debouncer" id="indexed-debouncer" style="color: inherit; text-decoration: none;">
   <h1>Indexed Debouncer</h1>
 </a>
-<p>A class that can be instantiated as a global dependency and which can keep track of named debounces
-across various disparate execution calls. This was built specifically to address React component
-mount/unmount chaos, in which a &quot;normal&quot; debounce function wouldn&#39;t work because it is being
-instantiated as a new instance every execution.</p>
+<p>The primary export of this library is the <a href="classes/Debouncer.html"><code>Debouncer</code> class</a>. This is a
+class that can be instantiated as a global dependency and which can keep track of named debounces
+across various disparate execution calls.</p>
+<p>This was built specifically to address React component mount/unmount chaos, in which a &quot;normal&quot;
+debounce function wouldn&#39;t work because it is being instantiated as a new instance every execution.
+See examples of the primary use case below in <code>Usage</code>.</p>
 <p>Note: Detailed library API docs are available in this repo at <code>/docs/index.html</code>.</p>
 
 <a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
   <h2>Usage</h2>
 </a>
-<p>The primary export of this library is the <a href="classes/Debouncer.html"><code>Debouncer</code> class</a>.</p>
 <p><strong>Note: <code>Debouncer</code> has a default wait time of 15ms. This may be changed globally by passing a
 different default in the <code>Debouncer</code> constructor, or it may be changed per-invocation by passing a
 wait time as the last parameter of <code>bounce</code>.</strong></p>
