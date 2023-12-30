@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -Rf dist || true; rm -Rf docs || true",
-    "docgen": "pnpx typedoc src/index.ts --sort visibility --sort static-first --sort source-order",
+    "docs:gen": "typedoc src/index.ts --sort visibility --sort static-first --sort source-order",
+    "docs:serve": "pnpx http-server ./docs",
     "format": "pnpm prettier:fix && pnpm lint:fix",
     "lint": "eslint src tests",
     "lint:fix": "pnpm lint --fix",
