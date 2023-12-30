@@ -1,3 +1,6 @@
+.eslint*
+.prettier*
+.github
 *.sw[op]
 .node-xml*
 tests

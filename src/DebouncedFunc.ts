@@ -6,10 +6,7 @@ import { DebouncedFuncInterface, DebouncedFuncStatuses } from "./Types";
 export class DebouncedFunc<T> implements DebouncedFuncInterface<T> {
   private _status: DebouncedFuncStatuses = "waiting";
   private timeout: ReturnType<typeof setTimeout> | null = null;
-  private promise:
-    | null
-    | { resolve: (val: "canceled" | T) => void; reject: (e: Error) => void }
-    = null;
+  private promise: null | { resolve: (val: "canceled" | T) => void; reject: (e: Error) => void } = null;
 
   public constructor(protected waitMs: number) {}
 
@@ -57,4 +54,3 @@ export class DebouncedFunc<T> implements DebouncedFuncInterface<T> {
     this._status = "done";
   }
 }
-

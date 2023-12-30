@@ -1,14 +1,22 @@
 {
   "name": "@wymp/indexed-debouncer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A class that can be instantiated as a dependency and which can keep track of named debounces across various function executions. This was built specifically to address React component mount/unmount chaos.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npx tsc",
-    "docgen": "npx typedoc src/index.ts --sort visibility --sort static-first --sort source-order",
-    "test": "jest --verbose",
-    "prepublishOnly": "rm -Rf dist; npm run build && npm run docgen"
+    "build": "tsc",
+    "clean": "rm -Rf dist || true; rm -Rf docs || true",
+    "docgen": "pnpx typedoc src/index.ts --sort visibility --sort static-first --sort source-order",
+    "format": "pnpm prettier:fix && pnpm lint:fix",
+    "lint": "eslint src tests",
+    "lint:fix": "pnpm lint --fix",
+    "prepublishOnly": "pnpm clean && pnpm build && npm run docgen",
+    "prettier": "prettier src tests --check",
+    "prettier:fix": "pnpm prettier --write",
+    "test": "pnpm typecheck && pnpm prettier && pnpm lint && pnpm test:jest",
+    "test:jest": "jest --verbose",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -22,24 +30,22 @@
   },
   "homepage": "https://github.com/wymp/indexed-debouncer#readme",
   "devDependencies": {
-    "@types/jest": "^28.1.6",
-    "@types/node": "^18.6.5",
-    "husky": "^8.0.1",
-    "jest": "^28.1.3",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3",
-    "ts-jest": "^28.0.7",
-    "typedoc": "^0.23.10",
-    "typescript": "^4.0.3"
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.1",
+    "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.3.3"
   },
   "prettier": {
-    "printWidth": 100,
+    "printWidth": 120,
     "trailingComma": "es5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "jest": {
     "roots": [

@@ -7,9 +7,9 @@ across various disparate execution calls.
 
 This was built specifically to address React component mount/unmount chaos, in which a "normal"
 debounce function wouldn't work because it is being instantiated as a new instance every execution.
-See examples of the primary use case below in `Usage`.
+See examples of the primary use case below in [Usage](#usage).
 
-Note: Detailed library API docs are available in this repo at `/docs/index.html`.
+Note: Detailed library API docs are available in this repo at `./docs/index.html`.
 
 
 ## Usage
@@ -107,8 +107,9 @@ debouncer.bounce("non-existent", () => ({ status: "ready" }));
 
 ## Development
 
-1. run `npm install`
+1. run `pnpm i`
 2. Make code changes
-3. run `npx tsc`
+3. run `pnpm t`
 4. Make logical, specific commits
+5. Publish using `pnpm publish --access public`
 
