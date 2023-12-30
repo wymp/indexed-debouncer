@@ -13,7 +13,7 @@
     "lint": "eslint src tests",
     "lint:fix": "pnpm lint --fix",
     "preinstall": "npx only-allow pnpm",
-    "prepublishOnly": "pnpm clean && pnpm build && npm run docgen",
+    "prepublishOnly": "pnpm clean && pnpm build && npm run docs:gen",
     "prettier": "prettier src tests --check",
     "prettier:fix": "pnpm prettier --write",
     "test": "pnpm typecheck && pnpm prettier && pnpm lint && pnpm test:jest",
